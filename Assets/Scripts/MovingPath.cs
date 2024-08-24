@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,26 +10,48 @@ public class MovingPath : MonoBehaviour
 
     [SerializeField] private float moveSpd;
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private GameObject movingPathPrefab;
+    [SerializeField] private GameObject spawnMovingPathPos;
 
 
-    void Start()
+    private void Start()
     {
-        
+        GameManager.Instance.OnSecondCheckPointTouched += GameManager_OnSecondCheckPointTouched;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+
+    }
+
+    private void GameManager_OnSecondCheckPointTouched(object sender, EventArgs e)
+    {
+        SpawnMovingPath();
     }
 
     private void FixedUpdate()
     {
         zValue = transform.position.z;
-        if (zValue > 0)
+        if (zValue > -40f)
         {
-            rb.velocity = Vector3.back * moveSpd * Time.deltaTime;
+            rb.velocity = Vector3.back * moveSpd;
+        } else
+        {
+            Destroy(gameObject);
         }
         
     }
+    private void SpawnMovingPath()
+    {
+        Instantiate(movingPathPrefab, spawnMovingPathPos.transform.position, Quaternion.identity);
+        //print("Spawn");
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnSecondCheckPointTouched -= GameManager_OnSecondCheckPointTouched;
+    }
+
+    
 }
