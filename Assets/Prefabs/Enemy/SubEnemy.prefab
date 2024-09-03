@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5458969392771360929
+--- !u!1001 &2495668403708278713
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -68,11 +68,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aca6d559aadf856478dd2a1e2822667d, type: 3}
---- !u!4 &6014773402005826924 stripped
+--- !u!4 &4186243219084358260 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1781986432116295117, guid: aca6d559aadf856478dd2a1e2822667d,
     type: 3}
-  m_PrefabInstance: {fileID: 5458969392771360929}
+  m_PrefabInstance: {fileID: 2495668403708278713}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9177396990089532972
 PrefabInstance:
@@ -158,7 +158,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5861781141003659548, guid: 67445ef5640740a4c8ea18765936eec3,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6014773402005826924}
+      addedObject: {fileID: 4186243219084358260}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1371342849064076412, guid: 67445ef5640740a4c8ea18765936eec3,
         type: 3}
@@ -202,7 +202,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpd: 10
+  fallMutiplier: 10
   rb: {fileID: 1446042517622156679}
   explodePrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312,
     type: 3}

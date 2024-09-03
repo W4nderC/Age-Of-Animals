@@ -7,14 +7,15 @@ public class HardEnemy : MonoBehaviour
 {
     [SerializeField] private float moveSpd;
     [SerializeField] private float fallMutiplier = 10f;
-    [SerializeField] private Rigidbody rb;
     [SerializeField] private GameObject explodePrefab;
 
     private float zValue;
+    private Rigidbody rb;
 
     private void Start() 
     {
         GameManager.Instance.OnObstaclesDestroy += GameManager_OnObstaclesDestroy;
+        rb = GetComponent<Rigidbody>();
         rb.AddForce(Vector3.down.normalized, ForceMode.Impulse);
     }
 

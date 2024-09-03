@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d435200f258714dbc424e0990a1288, type: 3}
   m_Name: BossEnemySO
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 4869442844585482998, guid: d39209ed910003642a81cbc2b63798ab,
+  enemyPrefab: {fileID: 4869442844585482998, guid: 7bc04658418fd7d4b8011bc77f184941,
     type: 3}

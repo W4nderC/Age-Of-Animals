@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d435200f258714dbc424e0990a1288, type: 3}
   m_Name: HardEnemySO
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1391997204903342850, guid: e60ccc796e7d44e488d10a00b800273e,
+  enemyPrefab: {fileID: 1391997204903342850, guid: 235de4795beb4bd40852bb5d9b7e419a,
     type: 3}
