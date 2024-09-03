@@ -25,3 +25,66 @@ MonoBehaviour:
   - equationName: +2
     equationResult: 2
     math: 0
+  - equationName: +3
+    equationResult: 3
+    math: 0
+  - equationName: -2
+    equationResult: 2
+    math: 1
+  - equationName: -1
+    equationResult: 1
+    math: 1
+  - equationName: +6
+    equationResult: 6
+    math: 0
+  - equationName: x1
+    equationResult: 1
+    math: 2
+  - equationName: x2
+    equationResult: 2
+    math: 2
+  - equationName: +10
+    equationResult: 10
+    math: 0
+  - equationName: -3
+    equationResult: 3
+    math: 1
+  - equationName: x3
+    equationResult: 3
+    math: 2
+  - equationName: /2
+    equationResult: 2
+    math: 3
+  - equationName: -4
+    equationResult: 4
+    math: 1
+  - equationName: -5
+    equationResult: 5
+    math: 1
+  - equationName: /3
+    equationResult: 3
+    math: 3
+  - equationName: =3
+    equationResult: 3
+    math: 4
+  - equationName: =4
+    equationResult: 4
+    math: 4
+  - equationName: =5
+    equationResult: 5
+    math: 4
+  - equationName: -6
+    equationResult: 6
+    math: 1
+  - equationName: -7
+    equationResult: 7
+    math: 1
+  - equationName: -8
+    equationResult: 8
+    math: 1
+  - equationName: -9
+    equationResult: 9
+    math: 1
+  - equationName: -10
+    equationResult: 10
+    math: 1

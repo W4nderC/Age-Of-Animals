@@ -6,6 +6,14 @@ TagManager:
   tags:
   - NormalClone
   - AdvanceClone
+  - HardClone
+  - SubClone
+  - BossClone
+  - NormalEnemy
+  - AdvanceEnemy
+  - HardEnemy
+  - SubEnemy
+  - BossEnemy
   layers:
   - Default
   - TransparentFX

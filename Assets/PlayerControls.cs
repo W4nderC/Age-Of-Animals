@@ -35,6 +35,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Paused"",
+                    ""type"": ""Button"",
+                    ""id"": ""3b25fc65-6936-46fe-8cea-7baf5bcfeb29"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +101,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c4175375-f475-43e8-ad64-a9d7e6acd453"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Paused"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +121,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // PLayer
         m_PLayer = asset.FindActionMap("PLayer", throwIfNotFound: true);
         m_PLayer_Move = m_PLayer.FindAction("Move", throwIfNotFound: true);
+        m_PLayer_Paused = m_PLayer.FindAction("Paused", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,11 +184,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PLayer;
     private List<IPLayerActions> m_PLayerActionsCallbackInterfaces = new List<IPLayerActions>();
     private readonly InputAction m_PLayer_Move;
+    private readonly InputAction m_PLayer_Paused;
     public struct PLayerActions
     {
         private @PlayerControls m_Wrapper;
         public PLayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PLayer_Move;
+        public InputAction @Paused => m_Wrapper.m_PLayer_Paused;
         public InputActionMap Get() { return m_Wrapper.m_PLayer; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,6 +203,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Paused.started += instance.OnPaused;
+            @Paused.performed += instance.OnPaused;
+            @Paused.canceled += instance.OnPaused;
         }
 
         private void UnregisterCallbacks(IPLayerActions instance)
@@ -187,6 +213,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Paused.started -= instance.OnPaused;
+            @Paused.performed -= instance.OnPaused;
+            @Paused.canceled -= instance.OnPaused;
         }
 
         public void RemoveCallbacks(IPLayerActions instance)
@@ -207,5 +236,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface IPLayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnPaused(InputAction.CallbackContext context);
     }
 }
