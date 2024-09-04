@@ -9,12 +9,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     // Event when player touched checkpoint
-    public event EventHandler OnSecondCheckPointTouched;
+    public event EventHandler OnSpawnNewPath;
     // Destroy all enemy
     public event EventHandler OnObstaclesDestroy;
     // Event waiting to start
     public event EventHandler OnWaitingToStart;
-
     // Spawn GameOver Enemy
     public event EventHandler OnSpawnGameOverEnemy;
     public UnityEvent OnAnyCheckPointTouched;
@@ -105,9 +104,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void InvokeOnSecondCheckPointTouched() 
+    public void InvokeOnSpawnNewPath() 
     {
-        OnSecondCheckPointTouched?.Invoke(this, EventArgs.Empty);
+        OnSpawnNewPath?.Invoke(this, EventArgs.Empty);
     }
 
     public void InvokeOnAnyCheckPointTouched()
@@ -196,4 +195,5 @@ public class GameManager : MonoBehaviour
     public void InvokeOnSpawnGameOverEnemy () {
         OnSpawnGameOverEnemy?.Invoke(this, EventArgs.Empty);
     }
+
 }
