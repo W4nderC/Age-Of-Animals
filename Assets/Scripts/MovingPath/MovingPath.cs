@@ -8,8 +8,6 @@ public class MovingPath : MonoBehaviour
     private float zValue;
 
     [SerializeField] private float moveSpd;
-    // [SerializeField] private Rigidbody rb;
-
 
     [SerializeField] private int stateBreakNum = 10;
     [SerializeField] private int stateAccumulateNum = 100;
@@ -28,9 +26,8 @@ public class MovingPath : MonoBehaviour
         if(GameManager.Instance.IsGameState(GameManager.GameState.GamePlaying)) 
         {
             zValue = transform.position.z;
-            if (zValue > -31f)
+            if (zValue > -33f)
             {
-                // rb.velocity = Vector3.back * moveSpd;
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, 0, -60), moveSpd * Time.deltaTime);
             } else
             {
@@ -39,7 +36,6 @@ public class MovingPath : MonoBehaviour
         }
         else if (GameManager.Instance.IsGameState(GameManager.GameState.GameOver))
         {
-            // rb.velocity = Vector3.zero;
             transform.position = Vector3.zero;
         }
     }
