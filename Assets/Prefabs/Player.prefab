@@ -779,6 +779,8 @@ MonoBehaviour:
   maxNumberOfHardClone: 2
   maxNumberOfSubClone: 5
   maxNumberOfBossClone: 2
+  magicPoofPrefab: {fileID: 9157105887711914197, guid: 7bef903f59a486e4e834743397fc2c5c,
+    type: 3}
 --- !u!1 &5431647722060108938
 GameObject:
   m_ObjectHideFlags: 0

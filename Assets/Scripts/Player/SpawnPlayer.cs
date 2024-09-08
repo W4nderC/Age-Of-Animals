@@ -21,6 +21,7 @@ public class SpawnPlayer : MonoBehaviour
     [SerializeField] private int maxNumberOfSubClone; // 5
     [SerializeField] private int maxNumberOfBossClone; // 2
 
+    [SerializeField] private GameObject magicPoofPrefab;
     private GameObject[] normalCloneArray = new GameObject[10];
     private GameObject[] advanceCloneArray = new GameObject[5];
     private GameObject[] hardCloneArray = new GameObject[2];
@@ -159,7 +160,7 @@ public class SpawnPlayer : MonoBehaviour
     private void SpawnClone(GameObject clonePrefab)
     {                
         Vector3 position = new Vector3(Random.Range(-3, 3), 0.001f, Random.Range(-3, 3));
-
+        Instantiate(magicPoofPrefab, position, Quaternion.identity);
         Instantiate(clonePrefab, position, Quaternion.identity);
 
     }
