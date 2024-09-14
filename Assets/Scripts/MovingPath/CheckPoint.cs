@@ -18,10 +18,10 @@ public class CheckPoint : MonoBehaviour
     {
         checkPointName = gameObject.name;
 
-        if (GameManager.Instance.OnAnyCheckPointTouched == null)
-            GameManager.Instance.OnAnyCheckPointTouched = new UnityEvent();
+        // if (GameManager.Instance.OnAnyCheckPointTouched == null)
+        //     GameManager.Instance.OnAnyCheckPointTouched = new UnityEvent();
 
-        GameManager.Instance.OnAnyCheckPointTouched.AddListener(DisableCheckPoint);
+        // GameManager.Instance.OnAnyCheckPointTouched.AddListener(DisableCheckPoint);
 
     }
 
@@ -33,6 +33,7 @@ public class CheckPoint : MonoBehaviour
             DataManager.Instance.equationResult = equationTextUI.equationResult;
             GameManager.Instance.InvokeOnAnyCheckPointTouched();
             obstacle.GetComponent<Obstacle>().Show();
+            DisableCheckPoint();
         }
     }
 
@@ -41,8 +42,8 @@ public class CheckPoint : MonoBehaviour
         col.enabled = false;
     }
 
-    private void OnDestroy() 
-    {
-        GameManager.Instance.OnAnyCheckPointTouched.RemoveListener(DisableCheckPoint);
-    }
+    // private void OnDestroy() 
+    // {
+    //     GameManager.Instance.OnAnyCheckPointTouched.RemoveListener(DisableCheckPoint);
+    // }
 }

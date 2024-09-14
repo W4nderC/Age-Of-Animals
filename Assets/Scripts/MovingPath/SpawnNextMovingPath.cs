@@ -12,20 +12,21 @@ public class SpawnNextMovingPath : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.OnSpawnNewPath += GameManager_InvokeOnSpawnNewPath;
+        // GameManager.Instance.OnSpawnNewPath += GameManager_InvokeOnSpawnNewPath;
     }
 
-    private void GameManager_InvokeOnSpawnNewPath(object sender, EventArgs e)
-    {
-        SpawnMovingPath();
+    // private void GameManager_InvokeOnSpawnNewPath(object sender, EventArgs e)
+    // {
+    //     SpawnMovingPath();
         
-    }
+    // }
 
     private void OnTriggerExit(Collider other)
     {
         if(other.gameObject.name == StringList.PLAYER) 
         {
-            GameManager.Instance.InvokeOnSpawnNewPath();
+            // GameManager.Instance.InvokeOnSpawnNewPath();
+            SpawnMovingPath();
             col.enabled = false;
             spawnNextMovingPath.enabled = false;
         }
@@ -36,8 +37,8 @@ public class SpawnNextMovingPath : MonoBehaviour
         Instantiate(movingPathPrefab, spawnMovingPathPos.position, Quaternion.identity);
     }
 
-    private void OnDestroy()
-    {
-        GameManager.Instance.OnSpawnNewPath -= GameManager_InvokeOnSpawnNewPath;
-    }
+    // private void OnDestroy()
+    // {
+    //     GameManager.Instance.OnSpawnNewPath -= GameManager_InvokeOnSpawnNewPath;
+    // }
 }

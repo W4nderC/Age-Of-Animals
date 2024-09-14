@@ -781,6 +781,9 @@ MonoBehaviour:
   maxNumberOfBossClone: 2
   magicPoofPrefab: {fileID: 9157105887711914197, guid: 7bef903f59a486e4e834743397fc2c5c,
     type: 3}
+  magicPoofPos1: {x: 2, y: 0, z: -3}
+  magicPoofPos2: {x: 0, y: 0, z: -3}
+  magicPoofPos3: {x: -2, y: 0, z: -3}
 --- !u!1 &5431647722060108938
 GameObject:
   m_ObjectHideFlags: 0

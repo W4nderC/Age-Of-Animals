@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -21,7 +22,12 @@ public class SpawnPlayer : MonoBehaviour
     [SerializeField] private int maxNumberOfSubClone; // 5
     [SerializeField] private int maxNumberOfBossClone; // 2
 
+    [Header("Vfx")]
     [SerializeField] private GameObject magicPoofPrefab;
+    [SerializeField] private UnityEngine.Vector3 magicPoofPos1;
+    [SerializeField] private UnityEngine.Vector3 magicPoofPos2;
+    [SerializeField] private UnityEngine.Vector3 magicPoofPos3;
+
     private GameObject[] normalCloneArray = new GameObject[10];
     private GameObject[] advanceCloneArray = new GameObject[5];
     private GameObject[] hardCloneArray = new GameObject[2];
@@ -34,13 +40,6 @@ public class SpawnPlayer : MonoBehaviour
     private int currentNumberOfSubClone;
     private int currentNumberOfBossClone;
     private int currentNumberOfClone;
-    // private int checkPointId;
-
-
-    private void Start()
-    {
-
-    }
 
     void Update()
     {
@@ -71,7 +70,7 @@ public class SpawnPlayer : MonoBehaviour
         int numberHardCloneSpawn = 0;
         int numberSubCloneSpawn = 0;
 
-        // checkPointId = GameManager.Instance.checkPointId;
+
         int math = DataManager.Instance.math;
         int equationResult = DataManager.Instance.equationResult;
         int newNumberOfClone = NewNumberOfClone(math, equationResult, currentNumberOfClone);
@@ -84,9 +83,12 @@ public class SpawnPlayer : MonoBehaviour
         DestroyClone(subCloneArray, StringList.SUB_CLONE);
         DestroyClone(bossCloneArray, StringList.BOSS_CLONE);
         
-        
+        Instantiate(magicPoofPrefab, magicPoofPos1, UnityEngine.Quaternion.identity);   
+        Instantiate(magicPoofPrefab, magicPoofPos2, UnityEngine.Quaternion.identity); 
+        Instantiate(magicPoofPrefab, magicPoofPos3, UnityEngine.Quaternion.identity); 
+
         for (int i = 0; i < newNumberOfClone; i++)
-        {       
+        {
             SpawnNormalClone();
             numberNormalCloneSpawn++;
             if(numberNormalCloneSpawn == maxNumberOfNormalClone) 
@@ -159,9 +161,8 @@ public class SpawnPlayer : MonoBehaviour
 
     private void SpawnClone(GameObject clonePrefab)
     {                
-        Vector3 position = new Vector3(Random.Range(-3, 3), 0.001f, Random.Range(-3, 3));
-        Instantiate(magicPoofPrefab, position, Quaternion.identity);
-        Instantiate(clonePrefab, position, Quaternion.identity);
+        UnityEngine.Vector3 position = new UnityEngine.Vector3(Random.Range(-3, 3), 0.001f, Random.Range(-3, 3));
+        Instantiate(clonePrefab, position, UnityEngine.Quaternion.identity);
 
     }
 
