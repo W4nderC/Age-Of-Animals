@@ -322,7 +322,7 @@ MonoBehaviour:
   - {fileID: 1006233425757193085}
   - {fileID: 2136092272620449400}
   - {fileID: 5623666423428984070}
-  spd: 4
+  spd: 1
 --- !u!1 &1783369028950470800
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,11 +779,6 @@ MonoBehaviour:
   maxNumberOfHardClone: 2
   maxNumberOfSubClone: 5
   maxNumberOfBossClone: 2
-  magicPoofPrefab: {fileID: 9157105887711914197, guid: 7bef903f59a486e4e834743397fc2c5c,
-    type: 3}
-  magicPoofPos1: {x: 2, y: 0, z: -3}
-  magicPoofPos2: {x: 0, y: 0, z: -3}
-  magicPoofPos3: {x: -2, y: 0, z: -3}
 --- !u!1 &5431647722060108938
 GameObject:
   m_ObjectHideFlags: 0
