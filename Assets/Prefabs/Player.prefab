@@ -668,6 +668,7 @@ GameObject:
   - component: {fileID: 2942443146818058389}
   - component: {fileID: 4183247436747425449}
   - component: {fileID: 1252832906221420617}
+  - component: {fileID: 804508925797238520}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -779,6 +780,20 @@ MonoBehaviour:
   maxNumberOfHardClone: 2
   maxNumberOfSubClone: 5
   maxNumberOfBossClone: 2
+--- !u!114 &804508925797238520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5289586400929218926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5856af35de2b9cf46ae1c463a5f6f6ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explodePrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312,
+    type: 3}
 --- !u!1 &5431647722060108938
 GameObject:
   m_ObjectHideFlags: 0

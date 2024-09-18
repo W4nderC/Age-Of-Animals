@@ -152,7 +152,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5289586400929218926, guid: f67dd262481258e4b9093cf08788fa06,
         type: 3}
-      insertIndex: 2
+      insertIndex: -1
       addedObject: {fileID: 4440028458857662803}
     - targetCorrespondingSourceObject: {fileID: 5289586400929218926, guid: f67dd262481258e4b9093cf08788fa06,
         type: 3}
@@ -180,7 +180,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

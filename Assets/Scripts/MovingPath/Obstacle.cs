@@ -36,13 +36,15 @@ public class Obstacle : MonoBehaviour
     private int currentNumberOfBossEnemy;
     private int currentNumberOfEnemy;
 
+    private BoxCollider boxCollider;
+
     private void Awake() {
         
     }
 
     private void Start()
     {
-
+        boxCollider = gameObject.GetComponent<BoxCollider>();
     }
 
     private void OnEnable() 
@@ -137,11 +139,11 @@ public class Obstacle : MonoBehaviour
         Vector3 position = new Vector3
         (
             gameObject.transform.position.x + UnityEngine.Random.Range(-4, 4), 
-            .5f, 
+            3f, 
             gameObject.transform.position.z + UnityEngine.Random.Range(-3, 3)
         );
 
-        Instantiate(enemyPrefab, position, Quaternion.Euler( 0, 0, 180));
+        Instantiate(enemyPrefab, position, Quaternion.Euler( 0, 180, 0));
 
     }
 
@@ -170,6 +172,7 @@ public class Obstacle : MonoBehaviour
         else if (other.gameObject.name == StringList.PLAYER 
         && currentNumberOfEnemy > currentNumberOfClone)
         {   
+            boxCollider.enabled = false;
             GameManager.Instance.InvokeOnSpawnGameOverEnemy();
             GameManager.Instance.GameStateChange(GameManager.GameState.GameOver);
         }

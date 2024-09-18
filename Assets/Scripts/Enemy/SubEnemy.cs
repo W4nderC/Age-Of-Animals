@@ -6,7 +6,7 @@ using System;
 public class SubEnemy : MonoBehaviour
 {
     [SerializeField] private float moveSpd;
-    [SerializeField] private float fallMutiplier = 10f;
+    [SerializeField] private float fallMutiplier = 20f;
     [SerializeField] private GameObject explodePrefab;
 
     private float zValue;
@@ -37,7 +37,7 @@ public class SubEnemy : MonoBehaviour
         zValue = transform.position.z;
         if (zValue > -40f)
         {
-            rb.velocity = Vector3.back * moveSpd;
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, 0, -60), moveSpd * Time.deltaTime);
         } else
         {
             Destroy(gameObject);
@@ -46,10 +46,13 @@ public class SubEnemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.name == StringList.PLAYER
-        && selfDestroy == true) {
-            Instantiate(explodePrefab, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+        for (int i = 0; i < GameManager.Instance.friendlyUnitList.Count; i++)
+        {
+            if(other.gameObject.tag == GameManager.Instance.friendlyUnitList[i]
+            && selfDestroy == true) {
+                Instantiate(explodePrefab, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
         }
     }
 

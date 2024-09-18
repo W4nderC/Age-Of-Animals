@@ -2038,6 +2038,19 @@ MonoBehaviour:
   OnGameUnpaused:
     m_PersistentCalls:
       m_Calls: []
+  friendlyUnitList:
+  - Player
+  - NormalClone
+  - AdvanceClone
+  - HardClone
+  - SubClone
+  - BossClone
+  unfriendlyUnitList:
+  - NormalEnemy
+  - AdvanceEnemy
+  - HardEnemy
+  - SubEnemy
+  - BossEnemy
   gameState: 0
   spawnState: 0
 --- !u!4 &1515767525

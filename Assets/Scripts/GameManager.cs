@@ -26,6 +26,25 @@ public class GameManager : MonoBehaviour
     public UnityEvent OnGamePaused;
     public UnityEvent OnGameUnpaused;
  
+    [HideInInspector] public List<String> friendlyUnitList = new List<string>()
+    {
+        StringList.PLAYER,
+        StringList.NORMAL_CLONE,
+        StringList.ADVANCE_CLONE,
+        StringList.HARD_CLONE,
+        StringList.SUB_CLONE,
+        StringList.BOSS_CLONE,
+    };
+
+    [HideInInspector] public List<String> unfriendlyUnitList = new List<string>()
+    {
+        StringList.NORMAL_ENEMY,
+        StringList.ADVANCE_ENEMY,
+        StringList.HARD_ENEMY,
+        StringList.SUB_ENEMY,
+        StringList.BOSS_ENEMY,
+    };
+
     private bool isGamePaused = false;
     
     public enum GameState
@@ -86,8 +105,8 @@ public class GameManager : MonoBehaviour
             case GameState.GamePaused:
                 break;
             case GameState.GameOver:
-                OnGameOver?.Invoke();
-                print("Game state "+ gameState);
+                // OnGameOver?.Invoke();
+
                 break;
         }
     }

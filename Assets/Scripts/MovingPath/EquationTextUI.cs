@@ -36,7 +36,6 @@ public class EquationTextUI : MonoBehaviour
             tempNum = equationSO.equations.Length;
         }
 
-        print(GameManager.Instance.spawnState);
         return tempNum;
     }
 
