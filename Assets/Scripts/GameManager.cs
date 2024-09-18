@@ -81,12 +81,13 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.GamePlaying:
                 SpawnStateHandler();
-                print("PLaying");
+
                 break;
             case GameState.GamePaused:
                 break;
             case GameState.GameOver:
                 OnGameOver?.Invoke();
+                print("Game state "+ gameState);
                 break;
         }
     }

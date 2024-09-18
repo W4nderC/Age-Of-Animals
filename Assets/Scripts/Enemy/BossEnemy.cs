@@ -11,6 +11,7 @@ public class BossEnemy : MonoBehaviour
 
     private float zValue;
     private Rigidbody rb;
+    private bool selfDestroy;
 
     private void Start() 
     {
@@ -21,8 +22,7 @@ public class BossEnemy : MonoBehaviour
 
     private void GameManager_OnObstaclesDestroy(object sender, EventArgs e)
     {
-        Instantiate(explodePrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        selfDestroy = true;
     }
 
     private void FixedUpdate()
@@ -42,8 +42,15 @@ public class BossEnemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-           
-     
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.name == StringList.PLAYER
+        && selfDestroy == true) {
+            Instantiate(explodePrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 
     private void OnDestroy() {

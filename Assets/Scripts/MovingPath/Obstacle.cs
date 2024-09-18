@@ -60,7 +60,7 @@ public class Obstacle : MonoBehaviour
 
         int spawnNumber = currentNumberOfClone - UnityEngine.Random.Range(0, 5);
         currentNumberOfEnemyTxt.text = spawnNumber.ToString();
-        print("spawnNumber: "+spawnNumber);
+
         for (int i = 0; i < spawnNumber; i++)
         {
             SpawnNormalEnemy();
@@ -141,7 +141,7 @@ public class Obstacle : MonoBehaviour
             gameObject.transform.position.z + UnityEngine.Random.Range(-3, 3)
         );
 
-        Instantiate(enemyPrefab, position, Quaternion.Euler( 0, UnityEngine.Random.Range( 0, 360), 0));
+        Instantiate(enemyPrefab, position, Quaternion.Euler( 0, 0, 180));
 
     }
 
@@ -160,11 +160,13 @@ public class Obstacle : MonoBehaviour
                                 + currentNumberOfSubEnemy*100
                                 + currentNumberOfBossEnemy*500;
 
+        // Game playing when: Current number of clone >= number of enemy
         if(other.gameObject.name == StringList.PLAYER 
         && currentNumberOfEnemy <= currentNumberOfClone) 
         {
             GameManager.Instance.InvokeOnObstaclesDestroy();
         } 
+        // Game over when: Current number of clone < number of enemy
         else if (other.gameObject.name == StringList.PLAYER 
         && currentNumberOfEnemy > currentNumberOfClone)
         {   
