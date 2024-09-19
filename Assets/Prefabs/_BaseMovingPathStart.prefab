@@ -62,14 +62,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324522773048533009}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.9, y: 2, z: -4.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8386536557254094974}
   - {fileID: 358128066028923621}
-  m_Father: {fileID: 2369822375176967843}
+  m_Father: {fileID: 8336376977581240612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4768900336047243370
 BoxCollider:
@@ -133,7 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equationTextUI: {fileID: 7842629896951836160}
   obstacle: {fileID: 7221806099559148140}
-  col: {fileID: 4768900336047243370}
+  leftCol: {fileID: 4768900336047243370}
+  rightCol: {fileID: 6710148204429388273}
 --- !u!114 &7842629896951836160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,14 +404,13 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3341519735602276671}
-  - {fileID: 2202188493405552245}
-  - {fileID: 5164637417920973522}
   - {fileID: 1347730969206220939}
   - {fileID: 4903615377714773265}
   - {fileID: 4122884840709429905}
   - {fileID: 1697436551994767540}
   - {fileID: 4440766252995313339}
   - {fileID: 6894473159326043745}
+  - {fileID: 8336376977581240612}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1239498355660361380
@@ -527,14 +527,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5281194964387101309}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.9, y: 2, z: -4.8999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5997430631683474593}
   - {fileID: 5556954407699307667}
-  m_Father: {fileID: 2369822375176967843}
+  m_Father: {fileID: 8336376977581240612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6710148204429388273
 BoxCollider:
@@ -598,7 +598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equationTextUI: {fileID: 5913621032133447766}
   obstacle: {fileID: 7221806099559148140}
-  col: {fileID: 6710148204429388273}
+  leftCol: {fileID: 4768900336047243370}
+  rightCol: {fileID: 6710148204429388273}
 --- !u!114 &5913621032133447766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1054,6 +1055,39 @@ MonoBehaviour:
   maxNumberOfSubEnemy: 5
   maxNumberOfBossEnemy: 2
   currentNumberOfEnemyTxt: {fileID: 2647301785836437179}
+--- !u!1 &7391776049821115481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8336376977581240612}
+  m_Layer: 0
+  m_Name: CheckPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8336376977581240612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391776049821115481}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2202188493405552245}
+  - {fileID: 5164637417920973522}
+  m_Father: {fileID: 2369822375176967843}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7393288348352270133
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,13 +10,12 @@ public class CheckPoint : MonoBehaviour
     [SerializeField] private EquationTextUI equationTextUI;
     [SerializeField] private GameObject obstacle;
     
-    [SerializeField] private BoxCollider col;
+    [SerializeField] private BoxCollider leftCol;
+    [SerializeField] private BoxCollider rightCol;
 
-    private string checkPointName;
     
     private void Start()
     {
-        checkPointName = gameObject.name;
 
         // if (GameManager.Instance.OnAnyCheckPointTouched == null)
         //     GameManager.Instance.OnAnyCheckPointTouched = new UnityEvent();
@@ -39,7 +38,8 @@ public class CheckPoint : MonoBehaviour
 
     public void DisableCheckPoint()
     {
-        col.enabled = false;
+        leftCol.enabled = false;
+        rightCol.enabled = false;
     }
 
     // private void OnDestroy() 

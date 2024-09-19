@@ -37,11 +37,11 @@ public class SpawnPlayer : MonoBehaviour
 
     void Update()
     {
-        currentNumberOfNormalClone = GameObject.FindObjectsOfType<NormalClone>().Length;
-        currentNumberOfAdvanceClone = GameObject.FindObjectsOfType<AdvanceClone>().Length;
-        currentNumberOfHardClone = GameObject.FindObjectsOfType<HardClone>().Length;
-        currentNumberOfSubClone = GameObject.FindObjectsOfType<SubClone>().Length;
-        currentNumberOfBossClone = GameObject.FindObjectsOfType<BossClone>().Length;
+        currentNumberOfNormalClone = GameObject.FindGameObjectsWithTag(StringList.NORMAL_CLONE).Length;
+        currentNumberOfAdvanceClone = GameObject.FindGameObjectsWithTag(StringList.ADVANCE_CLONE).Length;
+        currentNumberOfHardClone = GameObject.FindGameObjectsWithTag(StringList.HARD_CLONE).Length;
+        currentNumberOfSubClone = GameObject.FindGameObjectsWithTag(StringList.SUB_CLONE).Length;
+        currentNumberOfBossClone = GameObject.FindGameObjectsWithTag(StringList.BOSS_CLONE).Length;
 
         currentNumberOfClone = currentNumberOfNormalClone + currentNumberOfAdvanceClone*10 
         + currentNumberOfHardClone*50 + currentNumberOfSubClone*100 + currentNumberOfBossClone*500;

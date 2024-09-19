@@ -61,7 +61,15 @@ public class Obstacle : MonoBehaviour
         int numberSubEnemySpawn = 0;
 
         int spawnNumber = currentNumberOfClone - UnityEngine.Random.Range(0, 5);
-        currentNumberOfEnemyTxt.text = spawnNumber.ToString();
+        if (spawnNumber > 0)
+        {
+            currentNumberOfEnemyTxt.text = spawnNumber.ToString();
+        }
+        else 
+        {
+            currentNumberOfEnemyTxt.text = 0.ToString();
+        }
+        
 
         for (int i = 0; i < spawnNumber; i++)
         {

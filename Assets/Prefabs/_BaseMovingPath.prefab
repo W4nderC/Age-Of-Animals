@@ -197,14 +197,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786498128544106288}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.9, y: 2, z: -4.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 35227889572019903}
   - {fileID: 4417937077864295581}
-  m_Father: {fileID: 2369822375176967843}
+  m_Father: {fileID: 2278686418205572033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &9096060603210683932
 BoxCollider:
@@ -268,7 +268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equationTextUI: {fileID: 1455304636867855834}
   obstacle: {fileID: 1349965445892342618}
-  col: {fileID: 9096060603210683932}
+  leftCol: {fileID: 9096060603210683932}
+  rightCol: {fileID: 7609274025788197696}
 --- !u!114 &1455304636867855834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,14 +655,13 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3341519735602276671}
-  - {fileID: 2583665061233584150}
-  - {fileID: 6638998044596335407}
   - {fileID: 1517376490718268587}
   - {fileID: 4903615377714773265}
   - {fileID: 6198393325545924491}
   - {fileID: 8821500179952718031}
   - {fileID: 72911326929134459}
   - {fileID: 2061934072136304822}
+  - {fileID: 2278686418205572033}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1239498355660361380
@@ -805,6 +805,39 @@ MonoBehaviour:
   spawnMovingPathPos: {fileID: 72911326929134459}
   col: {fileID: 480592433850553186}
   spawnNextMovingPath: {fileID: 9125592651175995047}
+--- !u!1 &4891237962347684116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2278686418205572033}
+  m_Layer: 0
+  m_Name: CheckPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2278686418205572033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4891237962347684116}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2583665061233584150}
+  - {fileID: 6638998044596335407}
+  m_Father: {fileID: 2369822375176967843}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5634060307213646270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,14 +1289,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8321906650381464481}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.9, y: 2, z: -4.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4741320702922291716}
   - {fileID: 7724358535561120195}
-  m_Father: {fileID: 2369822375176967843}
+  m_Father: {fileID: 2278686418205572033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7609274025788197696
 BoxCollider:
@@ -1327,7 +1360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equationTextUI: {fileID: 4089506357009815271}
   obstacle: {fileID: 1349965445892342618}
-  col: {fileID: 7609274025788197696}
+  leftCol: {fileID: 9096060603210683932}
+  rightCol: {fileID: 7609274025788197696}
 --- !u!114 &4089506357009815271
 MonoBehaviour:
   m_ObjectHideFlags: 0
