@@ -15,7 +15,8 @@ public class MovingPath : MonoBehaviour
 
     private void Start()
     {
-        int currentNumberOfClone = DataManager.Instance.currentNumberOfClone;
+        int currentNumberOfClone = DataManager.Instance.newNumberOfClone;
+        // int currentNumberOfClone = DataManager.Instance.CurrentNumOfClone();
 
         ChangeSpawnState(currentNumberOfClone);  
 

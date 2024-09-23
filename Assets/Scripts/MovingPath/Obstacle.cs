@@ -45,22 +45,26 @@ public class Obstacle : MonoBehaviour
     private void Start()
     {
         boxCollider = gameObject.GetComponent<BoxCollider>();
+        SpawnEnemyHandler();
     }
 
     private void OnEnable() 
     {
-        SpawnEnemyHandler();
+        
     }
 
     public void SpawnEnemyHandler()
     {
-        currentNumberOfClone = DataManager.Instance.currentNumberOfClone;
+        currentNumberOfClone = DataManager.Instance.newNumberOfClone;
+        // currentNumberOfClone = DataManager.Instance.CurrentNumOfClone();
         int numberNormalEnemySpawn = 0;
         int numberAdvanceEnemySpawn = 0;
         int numberHardEnemySpawn = 0;
         int numberSubEnemySpawn = 0;
 
+        print("currentNumberOfClone "+ currentNumberOfClone);
         int spawnNumber = currentNumberOfClone - UnityEngine.Random.Range(0, 5);
+        print("spawnNumber "+ spawnNumber);
         if (spawnNumber > 0)
         {
             currentNumberOfEnemyTxt.text = spawnNumber.ToString();
@@ -163,7 +167,8 @@ public class Obstacle : MonoBehaviour
         currentNumberOfSubEnemy = FindObjectsOfType<SubEnemy>().Length;
         currentNumberOfBossEnemy = FindObjectsOfType<BossEnemy>().Length;
 
-        currentNumberOfClone = DataManager.Instance.currentNumberOfClone;
+        currentNumberOfClone = DataManager.Instance.newNumberOfClone;
+
         currentNumberOfEnemy =  currentNumberOfNormalEnemy 
                                 + currentNumberOfAdvanceEnemy*10 
                                 + currentNumberOfHardEnemy*50

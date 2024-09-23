@@ -199,6 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dee5b51895718b49b1614b50b6150ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vfxPrefab: {fileID: 5112403345868107898, guid: 76f90aa1e0949cc4f8cf121379882b82,
+    type: 3}
 --- !u!1001 &8446250145789264235
 PrefabInstance:
   m_ObjectHideFlags: 0

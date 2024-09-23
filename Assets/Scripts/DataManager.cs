@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DataManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class DataManager : MonoBehaviour
     [HideInInspector] public int currentNumberOfSubClone;
     [HideInInspector] public int currentNumberOfBossClone;
     [HideInInspector] public int currentNumberOfClone;
+    [HideInInspector] public int newNumberOfClone;
 
     // CheckPoint
     [HideInInspector] public int math;
@@ -30,15 +32,28 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        CurrentNumOfClone();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void CurrentNumOfClone()
+    {
+        currentNumberOfNormalClone = GameObject.FindGameObjectsWithTag(StringList.NORMAL_CLONE).Length;
+        currentNumberOfAdvanceClone = GameObject.FindGameObjectsWithTag(StringList.ADVANCE_CLONE).Length;
+        currentNumberOfHardClone = GameObject.FindGameObjectsWithTag(StringList.HARD_CLONE).Length;
+        currentNumberOfSubClone = GameObject.FindGameObjectsWithTag(StringList.SUB_CLONE).Length;
+        currentNumberOfBossClone = GameObject.FindGameObjectsWithTag(StringList.BOSS_CLONE).Length;
+
+        currentNumberOfClone = currentNumberOfNormalClone + currentNumberOfAdvanceClone*10 
+        + currentNumberOfHardClone*50 + currentNumberOfSubClone*100 + currentNumberOfBossClone*500;
+
+        // currentNumberOfClone;
     }
 }

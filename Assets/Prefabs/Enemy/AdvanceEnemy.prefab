@@ -160,7 +160,7 @@ PrefabInstance:
     - target: {fileID: 7732058178195323819, guid: 67445ef5640740a4c8ea18765936eec3,
         type: 3}
       propertyPath: m_Constraints
-      value: 0
+      value: 84
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -178,14 +178,8 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1371342849064076412, guid: 67445ef5640740a4c8ea18765936eec3,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 512457123778944517}
+      addedObject: {fileID: 3152025590498191492}
   m_SourcePrefab: {fileID: 100100000, guid: 67445ef5640740a4c8ea18765936eec3, type: 3}
---- !u!54 &1371611305098137095 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 7732058178195323819, guid: 67445ef5640740a4c8ea18765936eec3,
-    type: 3}
-  m_PrefabInstance: {fileID: 8666395478443996588}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2962244997324201136 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5861781141003659548, guid: 67445ef5640740a4c8ea18765936eec3,
@@ -219,7 +213,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6794205, y: 1.9999024, z: 4.590196}
   m_Center: {x: 0, y: 0.9999512, z: 0}
---- !u!114 &512457123778944517
+--- !u!114 &3152025590498191492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,11 +222,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7728957387532939728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98260186d1a260245b13ff22816f1362, type: 3}
+  m_Script: {fileID: 11500000, guid: bda8e016405fcd44fa0444a40acf045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpd: 10
-  fallMutiplier: 10
-  rb: {fileID: 1371611305098137095}
   explodePrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312,
     type: 3}
+  spd: 9

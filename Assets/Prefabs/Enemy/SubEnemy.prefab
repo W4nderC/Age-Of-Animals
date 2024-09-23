@@ -150,7 +150,7 @@ PrefabInstance:
     - target: {fileID: 7732058178195323819, guid: 67445ef5640740a4c8ea18765936eec3,
         type: 3}
       propertyPath: m_Constraints
-      value: 0
+      value: 84
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -167,14 +167,8 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1371342849064076412, guid: 67445ef5640740a4c8ea18765936eec3,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -8281236287872064405}
+      addedObject: {fileID: 1242998709290768310}
   m_SourcePrefab: {fileID: 100100000, guid: 67445ef5640740a4c8ea18765936eec3, type: 3}
---- !u!54 &1446042517622156679 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 7732058178195323819, guid: 67445ef5640740a4c8ea18765936eec3,
-    type: 3}
-  m_PrefabInstance: {fileID: 9177396990089532972}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3316218415837740848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5861781141003659548, guid: 67445ef5640740a4c8ea18765936eec3,
@@ -208,7 +202,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7552924, y: 1.3465462, z: 4.4388046}
   m_Center: {x: 0, y: 0.6732731, z: -0.29776967}
---- !u!114 &-8281236287872064405
+--- !u!114 &1242998709290768310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,11 +211,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7807927830800110160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87e4a85977e8ca4e9503bf02ad7678a, type: 3}
+  m_Script: {fileID: 11500000, guid: bda8e016405fcd44fa0444a40acf045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpd: 10
-  fallMutiplier: 10
-  rb: {fileID: 1446042517622156679}
   explodePrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312,
     type: 3}
+  spd: 9

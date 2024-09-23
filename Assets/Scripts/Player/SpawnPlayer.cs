@@ -28,47 +28,52 @@ public class SpawnPlayer : MonoBehaviour
     private GameObject[] subCloneArray = new GameObject[5];
     private GameObject[] bossCloneArray = new GameObject[2];
     
-    private int currentNumberOfNormalClone;
-    private int currentNumberOfAdvanceClone;
-    private int currentNumberOfHardClone;
-    private int currentNumberOfSubClone;
-    private int currentNumberOfBossClone;
+    // private int currentNumberOfNormalClone;
+    // private int currentNumberOfAdvanceClone;
+    // private int currentNumberOfHardClone;
+    // private int currentNumberOfSubClone;
+    // private int currentNumberOfBossClone;
     private int currentNumberOfClone;
 
     void Update()
     {
-        currentNumberOfNormalClone = GameObject.FindGameObjectsWithTag(StringList.NORMAL_CLONE).Length;
-        currentNumberOfAdvanceClone = GameObject.FindGameObjectsWithTag(StringList.ADVANCE_CLONE).Length;
-        currentNumberOfHardClone = GameObject.FindGameObjectsWithTag(StringList.HARD_CLONE).Length;
-        currentNumberOfSubClone = GameObject.FindGameObjectsWithTag(StringList.SUB_CLONE).Length;
-        currentNumberOfBossClone = GameObject.FindGameObjectsWithTag(StringList.BOSS_CLONE).Length;
+        // currentNumberOfNormalClone = GameObject.FindGameObjectsWithTag(StringList.NORMAL_CLONE).Length;
+        // currentNumberOfAdvanceClone = GameObject.FindGameObjectsWithTag(StringList.ADVANCE_CLONE).Length;
+        // currentNumberOfHardClone = GameObject.FindGameObjectsWithTag(StringList.HARD_CLONE).Length;
+        // currentNumberOfSubClone = GameObject.FindGameObjectsWithTag(StringList.SUB_CLONE).Length;
+        // currentNumberOfBossClone = GameObject.FindGameObjectsWithTag(StringList.BOSS_CLONE).Length;
 
-        currentNumberOfClone = currentNumberOfNormalClone + currentNumberOfAdvanceClone*10 
-        + currentNumberOfHardClone*50 + currentNumberOfSubClone*100 + currentNumberOfBossClone*500;
+        // currentNumberOfClone = currentNumberOfNormalClone + currentNumberOfAdvanceClone*10 
+        // + currentNumberOfHardClone*50 + currentNumberOfSubClone*100 + currentNumberOfBossClone*500;
         
-        DataManager.Instance.currentNumberOfNormalClone = currentNumberOfNormalClone;
-        DataManager.Instance.currentNumberOfAdvanceClone = currentNumberOfAdvanceClone;
-        DataManager.Instance.currentNumberOfHardClone = currentNumberOfHardClone;
-        DataManager.Instance.currentNumberOfSubClone = currentNumberOfSubClone;
-        DataManager.Instance.currentNumberOfBossClone = currentNumberOfBossClone;
-        DataManager.Instance.currentNumberOfClone = currentNumberOfClone;
+        // DataManager.Instance.currentNumberOfNormalClone = currentNumberOfNormalClone;
+        // DataManager.Instance.currentNumberOfAdvanceClone = currentNumberOfAdvanceClone;
+        // DataManager.Instance.currentNumberOfHardClone = currentNumberOfHardClone;
+        // DataManager.Instance.currentNumberOfSubClone = currentNumberOfSubClone;
+        // DataManager.Instance.currentNumberOfBossClone = currentNumberOfBossClone;
+        // DataManager.Instance.currentNumberOfClone = currentNumberOfClone;
         
     }
 
     public void SpawnCloneHandler()
     {
+        DataManager.Instance.CurrentNumOfClone();
         currentNumberOfClone = DataManager.Instance.currentNumberOfClone;
+        // currentNumberOfClone = DataManager.Instance.CurrentNumOfClone();
 
         int numberNormalCloneSpawn = 0;
         int numberAdvanceCloneSpawn = 0;
         int numberHardCloneSpawn = 0;
         int numberSubCloneSpawn = 0;
 
-
+        // Caculate new num of clone after touched checkpoint
         int math = DataManager.Instance.math;
         int equationResult = DataManager.Instance.equationResult;
         int newNumberOfClone = NewNumberOfClone(math, equationResult, currentNumberOfClone);
+        print("newNumberOfClone " +newNumberOfClone);
 
+        // replace old num with new caculated num of clone
+        DataManager.Instance.newNumberOfClone = newNumberOfClone;
 
         //Destroy all Clone
         DestroyClone(normalCloneArray, StringList.NORMAL_CLONE);
@@ -77,6 +82,7 @@ public class SpawnPlayer : MonoBehaviour
         DestroyClone(subCloneArray, StringList.SUB_CLONE);
         DestroyClone(bossCloneArray, StringList.BOSS_CLONE);
 
+        // Spawn new Clone up to new num caculated
         for (int i = 0; i < newNumberOfClone; i++)
         {
             SpawnNormalClone();
