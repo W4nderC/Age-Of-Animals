@@ -95,6 +95,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -6589156247470639921}
+    - targetCorrespondingSourceObject: {fileID: 1371342849064076412, guid: 67445ef5640740a4c8ea18765936eec3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8626017230816427318}
   m_SourcePrefab: {fileID: 100100000, guid: 67445ef5640740a4c8ea18765936eec3, type: 3}
 --- !u!1 &1391997204903342850 stripped
 GameObject:
@@ -135,20 +139,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0cf463ad45c46042802767eb0523e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySound: {fileID: -8626017230816427318}
   moveSpd: 10
   fallMutiplier: 10
-  rb: {fileID: 7717879937484016853}
   explodePrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312,
     type: 3}
+--- !u!114 &-8626017230816427318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391997204903342850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac94f6f8022e2754089e848d38e52171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5841056562717548130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5861781141003659548, guid: 67445ef5640740a4c8ea18765936eec3,
-    type: 3}
-  m_PrefabInstance: {fileID: 24386184778430334}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &7717879937484016853 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 7732058178195323819, guid: 67445ef5640740a4c8ea18765936eec3,
     type: 3}
   m_PrefabInstance: {fileID: 24386184778430334}
   m_PrefabAsset: {fileID: 0}

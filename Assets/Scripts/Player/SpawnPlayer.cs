@@ -59,7 +59,7 @@ public class SpawnPlayer : MonoBehaviour
     {
         DataManager.Instance.CurrentNumOfClone();
         currentNumberOfClone = DataManager.Instance.currentNumberOfClone;
-        // currentNumberOfClone = DataManager.Instance.CurrentNumOfClone();
+
 
         int numberNormalCloneSpawn = 0;
         int numberAdvanceCloneSpawn = 0;
@@ -70,10 +70,14 @@ public class SpawnPlayer : MonoBehaviour
         int math = DataManager.Instance.math;
         int equationResult = DataManager.Instance.equationResult;
         int newNumberOfClone = NewNumberOfClone(math, equationResult, currentNumberOfClone);
-        print("newNumberOfClone " +newNumberOfClone);
+
 
         // replace old num with new caculated num of clone
         DataManager.Instance.newNumberOfClone = newNumberOfClone;
+        ScoreManager.Instance.score = newNumberOfClone;
+        print("Score "+ ScoreManager.Instance.score);
+        // Is win condition achive?
+        GameManager.Instance.CheckWinCondition();
 
         //Destroy all Clone
         DestroyClone(normalCloneArray, StringList.NORMAL_CLONE);

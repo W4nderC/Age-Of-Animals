@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class NormalEnemy : MonoBehaviour
+public class NormalEnemy : MonoBehaviour, IEnemySelfDestructable
 {
+    
+    [SerializeField] private EnemySound enemySound;
     [SerializeField] private float moveSpd;
     [SerializeField] private float fallMutiplier = 20f;
     [SerializeField] private GameObject explodePrefab;
@@ -44,19 +46,28 @@ public class NormalEnemy : MonoBehaviour
         }        
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        for (int i = 0; i < GameManager.Instance.friendlyUnitList.Count; i++)
-        {
-            if(other.gameObject.tag == GameManager.Instance.friendlyUnitList[i]
-            && selfDestroy == true) {
-                Instantiate(explodePrefab, transform.position, Quaternion.identity);
-                Destroy(gameObject);
-            }
-        }
-    }
+    // private void OnCollisionEnter(Collision other)
+    // {
+    //     for (int i = 0; i < GameManager.Instance.friendlyUnitList.Count; i++)
+    //     {
+    //         if(other.gameObject.tag == GameManager.Instance.friendlyUnitList[i]
+    //         && selfDestroy == true) {
+    //             Instantiate(explodePrefab, transform.position, Quaternion.identity);
+    //             Destroy(gameObject);
+    //         }
+    //     }
+    // }
 
     private void OnDestroy() {
         GameManager.Instance.OnObstaclesDestroy -= GameManager_OnObstaclesDestroy;
+    }
+
+    public void SelfDestruction()
+    {
+        if(selfDestroy) {
+            Instantiate(explodePrefab, transform.position, Quaternion.identity);
+            enemySound.InvokeOnAnySelfDestruct();
+            Destroy(gameObject);  
+        }
     }
 }

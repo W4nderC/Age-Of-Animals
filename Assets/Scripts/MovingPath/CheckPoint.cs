@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class CheckPoint : MonoBehaviour
 {
+    public static event EventHandler OnAnyCheckPointTouched;
     
     [SerializeField] private EquationTextUI equationTextUI;
     [SerializeField] private GameObject obstacle;
@@ -28,6 +29,7 @@ public class CheckPoint : MonoBehaviour
     {
         if (other.gameObject.name == StringList.PLAYER)
         {
+            OnAnyCheckPointTouched?.Invoke(this, EventArgs.Empty); // play sound
             DataManager.Instance.math = equationTextUI.math;
             DataManager.Instance.equationResult = equationTextUI.equationResult;
             GameManager.Instance.InvokeOnAnyCheckPointTouched();

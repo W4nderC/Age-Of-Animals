@@ -56,15 +56,14 @@ public class Obstacle : MonoBehaviour
     public void SpawnEnemyHandler()
     {
         currentNumberOfClone = DataManager.Instance.newNumberOfClone;
-        // currentNumberOfClone = DataManager.Instance.CurrentNumOfClone();
+
         int numberNormalEnemySpawn = 0;
         int numberAdvanceEnemySpawn = 0;
         int numberHardEnemySpawn = 0;
         int numberSubEnemySpawn = 0;
 
-        print("currentNumberOfClone "+ currentNumberOfClone);
-        int spawnNumber = currentNumberOfClone - UnityEngine.Random.Range(0, 5);
-        print("spawnNumber "+ spawnNumber);
+        int spawnNumber = currentNumberOfClone - RandomNum();
+
         if (spawnNumber > 0)
         {
             currentNumberOfEnemyTxt.text = spawnNumber.ToString();
@@ -102,6 +101,23 @@ public class Obstacle : MonoBehaviour
                 SpawnBossEnemy();
                 numberSubEnemySpawn = 0;
             }
+        }
+    }
+
+    private int RandomNum()
+    {
+        int num = 0;
+        if(GameManager.Instance.IsSpawnState(GameManager.SpawnState.Break)) 
+        {
+            return num = UnityEngine.Random.Range(0, 5);
+        } 
+        else if(GameManager.Instance.IsSpawnState(GameManager.SpawnState.Accumulate))
+        {
+            return num = UnityEngine.Random.Range(-1, 5);
+        }
+        else
+        {
+            return num = UnityEngine.Random.Range(-2, 5);
         }
     }
 

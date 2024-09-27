@@ -26,6 +26,9 @@ public class StringList : MonoBehaviour
     public const string FIR_CHECKPOINT_LEFT = "FirstCheckPointLeft";
     public const string FIR_CHECKPOINT_RIGHT = "FirstCheckPointRight";
 
+    // score
+    public const string HIGH_SCORE = "HighScore";
+
     private void Awake()
     {
         if (Instance != null && Instance != this)

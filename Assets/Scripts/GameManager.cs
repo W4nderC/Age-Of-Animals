@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnWaitingToStart;
     // Spawn GameOver Enemy
     public event EventHandler OnSpawnGameOverEnemy;
+    // Game finished event
+    public event EventHandler OnGameFinish;
     public UnityEvent OnAnyCheckPointTouched;
     // Spawn Clone event
     public UnityEvent OnNormalCloneSpawn;
@@ -52,7 +54,8 @@ public class GameManager : MonoBehaviour
         GameWaitingToStart,
         GamePlaying,
         GamePaused,
-        GameOver
+        GameOver,
+        GameFinished
     }
 
     public enum SpawnState
@@ -105,8 +108,10 @@ public class GameManager : MonoBehaviour
             case GameState.GamePaused:
                 break;
             case GameState.GameOver:
-                // OnGameOver?.Invoke();
 
+                break;
+            case GameState.GameFinished:
+                OnGameFinish?.Invoke(this, EventArgs.Empty);
                 break;
         }
     }
@@ -161,6 +166,10 @@ public class GameManager : MonoBehaviour
         {
             gameState = GameState.GameOver;
         }
+        else
+        {
+            gameState = GameState.GameFinished;
+        }
     }
 
     public void SpawnStateChange (SpawnState stateName) 
@@ -214,6 +223,13 @@ public class GameManager : MonoBehaviour
 
     public void InvokeOnSpawnGameOverEnemy () {
         OnSpawnGameOverEnemy?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void CheckWinCondition () 
+    {
+        if(DataManager.Instance.newNumberOfClone >= 500) {
+            GameStateChange(GameState.GameFinished);
+        }
     }
 
 }

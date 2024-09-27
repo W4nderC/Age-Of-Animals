@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class EnemyFromBehind : MonoBehaviour
 {
+    public static event EventHandler OnAnyExplosion;
     [SerializeField] private GameObject explodePrefab;
     [SerializeField] private float spd;
 
@@ -30,10 +33,13 @@ public class EnemyFromBehind : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == StringList.PLAYER)
+        for (int i = 0; i < GameManager.Instance.friendlyUnitList.Count; i++)
         {
-            Destroy(gameObject);
-            Instantiate(explodePrefab);
+            if(other.gameObject.tag == GameManager.Instance.friendlyUnitList[i]) {
+                Instantiate(explodePrefab, transform.position, Quaternion.identity);
+                OnAnyExplosion?.Invoke(this, new EventArgs());
+                Destroy(gameObject);
+            }
         }
 
     }

@@ -38,12 +38,6 @@ public class PlayerMovementControl : MonoBehaviour
         OnPausedAction?.Invoke();
     }
 
-    void Start()
-    {
-        
-
-    }
-
     private void Update()
     {
         Vector2 inputVector = GetInputVectorNormalized();
@@ -65,5 +59,15 @@ public class PlayerMovementControl : MonoBehaviour
     {
         playerControls.PLayer.Paused.performed -= Paused_performed;
         playerControls.Dispose();
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        IEnemySelfDestructable enemySelfDestructable = other.gameObject.GetComponent<IEnemySelfDestructable>();
+        if (enemySelfDestructable != null)
+        {
+            enemySelfDestructable.SelfDestruction();
+        }
+
     }
 }

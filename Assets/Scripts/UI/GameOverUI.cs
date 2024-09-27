@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -7,6 +8,9 @@ using UnityEngine.UI;
 public class GameOverUI : MonoBehaviour
 {
     [SerializeField] private Button returnBtn;
+    [SerializeField] private TextMeshProUGUI scoreTxt;
+    [SerializeField] private TextMeshProUGUI highScoreTxt;
+
     private void Awake() 
     {
         returnBtn.onClick.AddListener(() => 
@@ -40,6 +44,7 @@ public class GameOverUI : MonoBehaviour
     private void Show()
     {
         gameObject.SetActive(true);
+        ScoreTxtUpdate();
     }
 
     private void Hide()
@@ -50,5 +55,10 @@ public class GameOverUI : MonoBehaviour
     private void OnDestroy()
     {
         GameManager.Instance.OnGameOver.RemoveListener(EnableGameOverUI);
+    }
+
+    private void ScoreTxtUpdate () {
+        scoreTxt.text = "Score: " + ScoreManager.Instance.score;
+        highScoreTxt.text = "High Score: " + ScoreManager.Instance.highScore; 
     }
 }
