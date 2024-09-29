@@ -17,7 +17,6 @@ public class SoundManager : MonoBehaviour
     {
         EnemySound enemySound = sender as EnemySound;
         PlaySound(audioClipRefsSO.explode, enemySound.transform.position);
-        print("sound location "+enemySound.transform.position);
     }
 
     private void CheckPoint_OnAnyCheckPointTouched(object sender, System.EventArgs e)

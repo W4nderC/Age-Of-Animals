@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c722c356075c4488b0d002f724ffb0, type: 3}
   m_Name: AdvanceClone
   m_EditorClassIdentifier: 
-  playerClonePrefab: {fileID: 5289586400929218926, guid: a2058921acfb2404ab5ffc712c089393,
+  playerClonePrefab: {fileID: 1759417857747148508, guid: 17226d923a216c0459826dd22c6a5179,
     type: 3}
   playerClonePoint: 10

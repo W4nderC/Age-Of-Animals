@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: HardClone
       objectReference: {fileID: 0}
+    - target: {fileID: 8216506072336781544, guid: f67dd262481258e4b9093cf08788fa06,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d45a89d223944d4469207b37566f4205, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

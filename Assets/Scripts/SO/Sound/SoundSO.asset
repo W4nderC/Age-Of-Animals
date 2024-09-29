@@ -16,3 +16,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: faf30704e5d0ad94d8c3e7428be08545, type: 3}
   explode:
   - {fileID: 8300000, guid: 4767e2ad1d680bd4380bb840df3518e7, type: 3}
+  - {fileID: 8300000, guid: 8aea4ea23c93abe4ba0d4867863de775, type: 3}
+  - {fileID: 8300000, guid: cbea58e6bb8dc684b9592e51224b75da, type: 3}

@@ -75,8 +75,8 @@ public class SpawnPlayer : MonoBehaviour
         // replace old num with new caculated num of clone
         DataManager.Instance.newNumberOfClone = newNumberOfClone;
         ScoreManager.Instance.score = newNumberOfClone;
-        print("Score "+ ScoreManager.Instance.score);
-        // Is win condition achive?
+
+        // Is win condition fulfill?
         GameManager.Instance.CheckWinCondition();
 
         //Destroy all Clone

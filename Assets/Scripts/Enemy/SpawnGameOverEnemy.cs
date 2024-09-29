@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnGameOverEnemy : MonoBehaviour
+public class SpawnGameOverEnemy : MonoBehaviour, IEnemySelfDestructable
 {
+    [SerializeField] private EnemySound enemySound;
+
     private Rigidbody rb;
 
     [SerializeField] private float fallMutiplier = 10f;
@@ -14,11 +17,6 @@ public class SpawnGameOverEnemy : MonoBehaviour
         rb.AddForce(Vector3.down.normalized, ForceMode.Impulse);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void FixedUpdate() 
     {
@@ -28,5 +26,11 @@ public class SpawnGameOverEnemy : MonoBehaviour
 
         } 
 
+    }
+
+    public void SelfDestruction()
+    {
+        enemySound.InvokeOnAnySelfDestruct();
+        Destroy(gameObject);  
     }
 }
