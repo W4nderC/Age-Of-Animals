@@ -18,3 +18,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4767e2ad1d680bd4380bb840df3518e7, type: 3}
   - {fileID: 8300000, guid: 8aea4ea23c93abe4ba0d4867863de775, type: 3}
   - {fileID: 8300000, guid: cbea58e6bb8dc684b9592e51224b75da, type: 3}
+  gameOverObj:
+  - {fileID: 8300000, guid: a39cf947050bb814789b9953a26faf8d, type: 3}

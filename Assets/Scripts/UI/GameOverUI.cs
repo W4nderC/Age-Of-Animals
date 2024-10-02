@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class GameOverUI : MonoBehaviour
 {
     [SerializeField] private Button returnBtn;
+    [SerializeField] private Button retryBtn;
     [SerializeField] private TextMeshProUGUI scoreTxt;
     [SerializeField] private TextMeshProUGUI highScoreTxt;
 
@@ -16,6 +17,10 @@ public class GameOverUI : MonoBehaviour
         returnBtn.onClick.AddListener(() => 
         {
             Loader.Load(Loader.Scene.MainMenuScene);
+        });
+        retryBtn.onClick.AddListener(() => 
+        {
+            Loader.Load(Loader.Scene.PlayingScene);
         });
     }
     

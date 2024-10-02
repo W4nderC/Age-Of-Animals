@@ -40,11 +40,13 @@ public class PlayerMovementControl : MonoBehaviour
 
     private void Update()
     {
-        Vector2 inputVector = GetInputVectorNormalized();
+        if (GameManager.Instance.IsGameState(GameManager.GameState.GamePlaying))
+        {
+            Vector2 inputVector = GetInputVectorNormalized();
 
-        Vector3 moveDir = new Vector3(inputVector.x, 0, 0);
-        transform.position += moveDir * Time.deltaTime * moveSpd;
-
+            Vector3 moveDir = new Vector3(inputVector.x, 0, 0);
+            transform.position += moveDir * Time.deltaTime * moveSpd;
+        }
     }
 
     private Vector2 GetInputVectorNormalized()

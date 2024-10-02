@@ -7,4 +7,5 @@ public class SoundSO : ScriptableObject
 {
     public AudioClip[] checkPointTouched;
     public AudioClip[] explode;
+    public AudioClip[] gameOverObj;
 }

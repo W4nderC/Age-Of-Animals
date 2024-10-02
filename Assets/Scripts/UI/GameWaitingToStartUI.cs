@@ -2,10 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameWaitingToStartUI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private Button playBtn;
+
+    private void Awake() {
+        playBtn.onClick.AddListener(() => 
+        {
+            GameManager.Instance.InvokeOnGamePlayingEvent();
+            Hide();
+        });
+    }
+
     void Start()
     {
         GameManager.Instance.OnWaitingToStart += GameManager_OnWaitingToStart;
@@ -14,16 +24,6 @@ public class GameWaitingToStartUI : MonoBehaviour
     private void GameManager_OnWaitingToStart(object sender, EventArgs e)
     {
         Show();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetMouseButtonDown(0)) 
-        {
-            GameManager.Instance.GameStateChange(GameManager.GameState.GamePlaying);
-            Hide();
-        }
     }
 
 

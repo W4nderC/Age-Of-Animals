@@ -42,6 +42,7 @@ public class Timer : MonoBehaviour
         {
             remainingTime = 0;
             GameManager.Instance.GameStateChange(GameManager.GameState.GameOver);
+            GameManager.Instance.OnGameOver?.Invoke();
         }
         
         int minutes = Mathf.FloorToInt(remainingTime / 60);

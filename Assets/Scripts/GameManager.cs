@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnSpawnGameOverEnemy;
     // Game finished event
     public event EventHandler OnGameFinish;
+    // Event when game state is playing
+    public event EventHandler OnGamePlaying;
+    // Event checkpoint touched
     public UnityEvent OnAnyCheckPointTouched;
     // Spawn Clone event
     public UnityEvent OnNormalCloneSpawn;
@@ -86,6 +89,13 @@ public class GameManager : MonoBehaviour
             PlayerMovementControl.Instance.OnPausedAction = new UnityEvent();
 
         PlayerMovementControl.Instance.OnPausedAction.AddListener(TogglePauseGame); 
+
+        OnGamePlaying += GameManger_OnGamePlaying;
+    }
+
+    private void GameManger_OnGamePlaying(object sender, EventArgs e)
+    {
+        GameStateChange(GameState.GamePlaying);
     }
 
     private void Update()
@@ -230,6 +240,11 @@ public class GameManager : MonoBehaviour
         if(DataManager.Instance.newNumberOfClone >= 500) {
             GameStateChange(GameState.GameFinished);
         }
+    }
+
+    public void InvokeOnGamePlayingEvent () 
+    {
+        OnGamePlaying?.Invoke(this, EventArgs.Empty);
     }
 
 }

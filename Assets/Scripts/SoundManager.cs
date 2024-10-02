@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SoundManager : MonoBehaviour
 {
@@ -11,6 +12,15 @@ public class SoundManager : MonoBehaviour
         EnemyFromBehind.OnAnyExplosion += EnemyFromBehind_OnAnyExplosion;
         CheckPoint.OnAnyCheckPointTouched += CheckPoint_OnAnyCheckPointTouched;
         EnemySound.OnAnySelfDestruct += IEnemySelfDestructable_OnAnySelfDestruct;
+
+        if (GameManager.Instance.OnGameOver == null)
+            GameManager.Instance.OnGameOver = new UnityEvent();
+        GameManager.Instance.OnGameOver.AddListener(GameOverSound);
+    }
+
+    private void GameOverSound()
+    {
+        PlaySound(audioClipRefsSO.explode, transform.position, .7f);
     }
 
     private void IEnemySelfDestructable_OnAnySelfDestruct(object sender, System.EventArgs e)
@@ -28,7 +38,7 @@ public class SoundManager : MonoBehaviour
     private void EnemyFromBehind_OnAnyExplosion(object sender, System.EventArgs e)
     {
         EnemyFromBehind enemyFromBehind = sender as EnemyFromBehind;
-        PlaySound(audioClipRefsSO.explode, enemyFromBehind.transform.position); 
+        PlaySound(audioClipRefsSO.explode, enemyFromBehind.transform.position, .6f); 
     }
 
     public void PlaySound (AudioClip[] audioClipArray, Vector3 pos, float volume = 1f) {
@@ -42,5 +52,7 @@ public class SoundManager : MonoBehaviour
     private void OnDestroy() {
         EnemyFromBehind.OnAnyExplosion -= EnemyFromBehind_OnAnyExplosion;
         CheckPoint.OnAnyCheckPointTouched -= CheckPoint_OnAnyCheckPointTouched;
+        EnemySound.OnAnySelfDestruct -= IEnemySelfDestructable_OnAnySelfDestruct;
+        GameManager.Instance.OnGameOver.RemoveListener(GameOverSound);
     }
 }
