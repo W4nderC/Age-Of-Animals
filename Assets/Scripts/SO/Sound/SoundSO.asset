@@ -20,3 +20,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cbea58e6bb8dc684b9592e51224b75da, type: 3}
   gameOverObj:
   - {fileID: 8300000, guid: a39cf947050bb814789b9953a26faf8d, type: 3}
+  btns:
+  - {fileID: 8300000, guid: 2964903c1d7572e4898f4bc73f696672, type: 3}

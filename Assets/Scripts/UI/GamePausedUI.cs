@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GamePausedUI : MonoBehaviour
 {
+    [SerializeField] private PlaySoundEffect playSoundEffect;
     [SerializeField] private Button returnButton;
     [SerializeField] private Button resumeButton;
 
@@ -14,11 +15,13 @@ public class GamePausedUI : MonoBehaviour
         returnButton.onClick.AddListener(() => 
         {
             Loader.Load(Loader.Scene.MainMenuScene);
+            playSoundEffect.InvokeOnAnyBtnPressed();
         });  
         resumeButton.onClick.AddListener(() =>
         {
             GameManager.Instance.TogglePauseGame();
             GameManager.Instance.GameStateChange(GameManager.GameState.GamePlaying);
+            playSoundEffect.InvokeOnAnyBtnPressed();
         });
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpawnGameOverEnemy : MonoBehaviour, IEnemySelfDestructable
 {
-    [SerializeField] private EnemySound enemySound;
+    [SerializeField] private PlaySoundEffect enemySound;
 
     private Rigidbody rb;
 

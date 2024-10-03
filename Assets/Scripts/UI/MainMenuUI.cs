@@ -5,16 +5,18 @@ using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
+    [SerializeField] private PlaySoundEffect playSoundEffect;   
     [SerializeField] private Button playBtn;
     [SerializeField] private Button quitBtn;   
 
     private void Awake() 
     {
         playBtn.onClick.AddListener(() => {
-            print("Play");
+            playSoundEffect.InvokeOnAnyBtnPressed();
             Loader.Load(Loader.Scene.PlayingScene);
         });  
         quitBtn.onClick.AddListener(() => {
+            playSoundEffect.InvokeOnAnyBtnPressed();
             Application.Quit();
         });  
 

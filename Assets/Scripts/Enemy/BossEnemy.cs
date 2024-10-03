@@ -5,7 +5,7 @@ using System;
 
 public class BossEnemy : MonoBehaviour, IEnemySelfDestructable
 {
-    [SerializeField] private EnemySound enemySound;
+    [SerializeField] private PlaySoundEffect enemySound;
     [SerializeField] private float moveSpd;
     [SerializeField] private float fallMutiplier = 20f;
     [SerializeField] private GameObject explodePrefab;

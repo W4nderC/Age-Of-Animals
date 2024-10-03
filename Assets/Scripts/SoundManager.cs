@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,17 +6,25 @@ using UnityEngine.Events;
 
 public class SoundManager : MonoBehaviour
 {
+
     [SerializeField] private SoundSO audioClipRefsSO;
  
     private void Start()
     {
         EnemyFromBehind.OnAnyExplosion += EnemyFromBehind_OnAnyExplosion;
         CheckPoint.OnAnyCheckPointTouched += CheckPoint_OnAnyCheckPointTouched;
-        EnemySound.OnAnySelfDestruct += IEnemySelfDestructable_OnAnySelfDestruct;
+        PlaySoundEffect.OnAnySelfDestruct += IEnemySelfDestructable_OnAnySelfDestruct;
+        PlaySoundEffect.OnAnyBtnPressed += PlaySoundEffect_OnAnyBtnPressed;
 
         if (GameManager.Instance.OnGameOver == null)
             GameManager.Instance.OnGameOver = new UnityEvent();
         GameManager.Instance.OnGameOver.AddListener(GameOverSound);
+    }
+
+    private void PlaySoundEffect_OnAnyBtnPressed(object sender, EventArgs e)
+    {
+        PlaySoundEffect btnSound = sender as PlaySoundEffect;
+        PlaySound(audioClipRefsSO.btns, btnSound.transform.position);
     }
 
     private void GameOverSound()
@@ -25,7 +34,7 @@ public class SoundManager : MonoBehaviour
 
     private void IEnemySelfDestructable_OnAnySelfDestruct(object sender, System.EventArgs e)
     {
-        EnemySound enemySound = sender as EnemySound;
+        PlaySoundEffect enemySound = sender as PlaySoundEffect;
         PlaySound(audioClipRefsSO.explode, enemySound.transform.position);
     }
 
@@ -42,7 +51,7 @@ public class SoundManager : MonoBehaviour
     }
 
     public void PlaySound (AudioClip[] audioClipArray, Vector3 pos, float volume = 1f) {
-        PlaySound (audioClipArray[Random.Range(0, audioClipArray.Length)], pos, volume);
+        PlaySound (audioClipArray[UnityEngine.Random.Range(0, audioClipArray.Length)], pos, volume);
     }
 
     public void PlaySound (AudioClip audioClip, Vector3 pos, float volume = 1f) {
@@ -52,7 +61,8 @@ public class SoundManager : MonoBehaviour
     private void OnDestroy() {
         EnemyFromBehind.OnAnyExplosion -= EnemyFromBehind_OnAnyExplosion;
         CheckPoint.OnAnyCheckPointTouched -= CheckPoint_OnAnyCheckPointTouched;
-        EnemySound.OnAnySelfDestruct -= IEnemySelfDestructable_OnAnySelfDestruct;
+        PlaySoundEffect.OnAnySelfDestruct -= IEnemySelfDestructable_OnAnySelfDestruct;
         GameManager.Instance.OnGameOver.RemoveListener(GameOverSound);
+        PlaySoundEffect.OnAnyBtnPressed -= PlaySoundEffect_OnAnyBtnPressed;
     }
 }
